@@ -24,7 +24,7 @@
  # Build and install new toolchain when filesystem changes occur
  # Output is a chrootable buildfs
  
- build-tc:
+ build-tc-atv:
 			cd atvx86/ && bash -x build.sh
 
  clean:
