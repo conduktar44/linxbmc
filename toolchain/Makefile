@@ -25,7 +25,7 @@
  # Output is a chrootable buildfs
  
  build-tc:
-			bash -x -e atvx86/build.sh
+			cd atvx86/ && bash -x build.sh
 
  clean:
 			rm -rf /toolchains/filesystems

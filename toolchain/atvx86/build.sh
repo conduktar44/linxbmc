@@ -31,7 +31,7 @@ CHROOT_PRE_PREP="" # This is useful for debootstraps with --foreign
 CHROOT_LINE="chroot ${INSTALLPATH} /bin/bash /${CHROOT_FILE}"
 VERSION=$(cat version)
 
-. ../common/chroot-ops.sh
+. ../../common/chroot-ops.sh
 . ../../scripts/build_funcs.sh
 
 # Install tools we need
@@ -40,7 +40,7 @@ handle_dep "debootstrap" "/usr/sbin/debootstrap"
 
 # Check if re-build is necessary
 
-sh ../common/checkbuild.sh "$INSTALLPATH"
+sh ../../common/checkbuild.sh "$INSTALLPATH"
 
 if [ "$?" == "0" ]; then echo "Toolchain is up to date" && exit 1; fi
 
@@ -92,8 +92,7 @@ fi
 
 # Install to archives
 echo "Copied archive to /toolchains/archive as linxbmc-buildfs-$target-$VERSION.tar.gz"
-mkdir -p /filesystems/archive
-mv "linxbmc-buildfs-$target-$VERSION.tar.gz" /toolchains/archive/
+mkdir -p /toolchains/archive > /dev/null 2>&1
+mv "linxbmc-buildfs-$TARGET-$VERSION.tar.gz" /toolchains/archive/
 
-return 0
-
+exit 0
