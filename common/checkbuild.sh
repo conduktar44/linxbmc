@@ -30,7 +30,7 @@ PATH1=$(pwd)/version
 PATH2="$1/version"
 if diff $PATH1 $PATH2 > /dev/null 2>&1
 then
-return 0
+exit 0
 else
-return 1
+exit 1
 fi
